@@ -1,6 +1,5 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Moviern React Native App
  *
  * @format
  * @flow
@@ -12,12 +11,13 @@ import {
   SafeAreaView,
 } from 'react-native';
 
+// Routes component controls all screens that can be pushed into the screen stack.
 import Routes from './routes';
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColor="transparent"/>
+      <StatusBar barStyle="light-content" backgroundColor="#000"/>
       <Routes />
     </>
   );
