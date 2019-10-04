@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 import api from '../services/api';
-import { bold } from 'ansi-colors';
 
-export default function HotCarousel(props) {
+import MovieCarousel from './MovieCarousel';
+
+export default function Header(props) {
 
   // Itens of the carousel.
   const [results, setResults] = useState([]);
@@ -36,7 +37,10 @@ export default function HotCarousel(props) {
     <View style={styles.container}>
       <Text style={styles.title}>Now Showing</Text>
       <Text style={styles.subTitle}>Richmond, Victoria</Text>
+
       <Text style={styles.sectionTitle}>Whats hot 🔥</Text>
+      <MovieCarousel />
+      
       <Text style={styles.sectionTitle}>Upcoming 📽</Text>
     </View>
   );
@@ -65,4 +69,10 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: "bold",
   },
+  carousel: {
+    paddingVertical: 15,
+  },
+  cover: {
+
+  }
 });

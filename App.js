@@ -17,7 +17,7 @@ import Routes from './routes';
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="light-content" backgroundColor="#000"/>
+      <StatusBar barStyle='light-content' backgroundColor='rgba(0, 0, 0, 0.2)'/>
       <Routes />
     </>
   );

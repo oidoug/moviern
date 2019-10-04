@@ -3,8 +3,8 @@ import { ImageBackground, FlatList, StyleSheet } from 'react-native';
 
 import api from '../services/api';
 
-import HotCarousel from '../components/HotCarousel';
-import MovieItem from '../components/MovieItem';
+import Header from '../components/Header';
+import MovieGridItem from '../components/MovieGridItem';
 
 export default function GridScreen(props) {
 
@@ -27,7 +27,6 @@ export default function GridScreen(props) {
       }
     })
     .then(function (response) {
-      console.log(response.data);
       setResults(response.data.results);
     })
     .catch(function (error) {
@@ -45,9 +44,11 @@ export default function GridScreen(props) {
         contentContainerStyle={styles.content}
         numColumns={3}
         data={results}
-        renderItem={(item) => <MovieItem key={item.id} movie={item} />}
-        keyExtractor={(item) => {item.id}}
-        ListHeaderComponent={<HotCarousel />}
+        renderItem={({item}) => 
+          <MovieGridItem key={item.id} movie={item} />
+        }
+        keyExtractor={(item) => item.id}
+        ListHeaderComponent={<Header />}
       />
     </ImageBackground>
   );
