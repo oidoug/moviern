@@ -19,27 +19,26 @@ export default function Header(props) {
   },[]);
 
   function requestMovieList() {
-    api.get('/discover/movie', {
+    api.get('/movie/upcoming', {
       params: {
-        sort_by: "popularity.desc",
         page: result_page,
       }
     })
     .then(function (response) {
-      setResults(response.results);
+      setResults(response.data.results);
     })
     .catch(function (error) {
       console.log(error);
     });
   }
 
-  return(
+  return (
     <View style={styles.container}>
       <Text style={styles.title}>Now Showing</Text>
       <Text style={styles.subTitle}>Richmond, Victoria</Text>
 
       <Text style={styles.sectionTitle}>Whats hot 🔥</Text>
-      <MovieCarousel />
+      <MovieCarousel movieList={results}/>
       
       <Text style={styles.sectionTitle}>Upcoming 📽</Text>
     </View>
@@ -68,11 +67,5 @@ const styles = StyleSheet.create({
     color: "#B7BFC3",
     fontSize: 17,
     fontWeight: "bold",
-  },
-  carousel: {
-    paddingVertical: 15,
-  },
-  cover: {
-
   }
 });

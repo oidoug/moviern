@@ -19,10 +19,12 @@ export default function GridScreen(props) {
     requestMovieList();
   },[]);
 
+  // Upcoming movies: sorting by popularity otherwise too many unknown movies shows up.
   function requestMovieList() {
     api.get('/discover/movie', {
       params: {
         sort_by: "popularity.desc",
+        "primary_release_date.gte": "2019-10-04",
         page: result_page,
       }
     })
@@ -56,15 +58,15 @@ export default function GridScreen(props) {
 
 const styles = StyleSheet.create({
   container: { 
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#000",
+    flex: 1,
+    backgroundColor: "black",
     resizeMode: "cover",
   },
   grid: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 0,
   },
   content: {
+    paddingHorizontal: 20,
     justifyContent: "space-between",
   }
 });

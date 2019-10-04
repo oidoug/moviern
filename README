@@ -14,3 +14,4 @@ A simple React-Native example App that uses [TheMovieDB.org] API to show some ne
 - [ ] Write some tests;
 - [ ] Cleanup styles and move to separated files;
 - [ ] Use a image for the cover blue shadown on Android. Elevation does not support different colors in RN right now (altough it may be comming soon);
+- [ ] Paddings could be respected more closely if not used globally. Carousel has its peculia
