@@ -1,0 +1,13 @@
+# Moviern
+
+A simple React-Native example App that uses [TheMovieDB.org] API to show some new and trending movies in a modern, Netflix style UI.
+
+## Things that we could improve:
+
+* Control total number of pages on requests so we don't keep asking for more content in the end of the list.
+* We should be able to change the city that we are querying for, but there isn't a design ready for that.
+* It was used a FlatList with "fake" sections so we could have a grid style without using a more complex grid component (SectionList doesn't offer column styled layout). A good option would be https://github.com/saleel/react-native-super-grid
+
+## TODO
+
+- [ ] Define Prop types for MovieItem and MovieScreen.
