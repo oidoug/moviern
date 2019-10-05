@@ -10,9 +10,10 @@ import {
 } from 'react-native';
 
 import { baseBackdropURL } from '../services/api';
+import MovieCard from '../components/MovieCard';
 
 const { height: viewportHeight } = Dimensions.get('window');
-const coverHeight = 0.7 * viewportHeight;
+const coverHeight = 0.6 * viewportHeight;
 
 export default function MovieScreen(props) {
 
@@ -27,20 +28,7 @@ export default function MovieScreen(props) {
           style={styles.cover}
           source={{uri: backdropURL}}
         />
-        <View style={styles.card}>
-          <View styles={styles.cardRidge}>
-            <View style={styles.ridgeNodge} />
-          </View>
-          <Text style={styles.title}>{movie.title}</Text>
-          {/* stars */}
-          {/* hours */}
-          {/* buttons */}
-
-          {/* tip */}
-          <Text style={styles.tipText}>{movie.title}</Text>
-          {/* description */}
-          <Text style={styles.detailText}>{movie.overview}</Text>
-        </View>
+        <MovieCard movie={movie}/>
       </ScrollView>
 
       {/* BackButton */}
@@ -70,54 +58,6 @@ const styles = StyleSheet.create({
     width: '100%',
     resizeMode: "cover",
     backgroundColor: "black",
-  },
-  card: {
-    top: -16,
-    backgroundColor: "black",
-    borderTopEndRadius: 16,
-    borderTopStartRadius: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(1,1,1,0.15)',
-    paddingHorizontal: 20,
-  },
-  cardRidge: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  ridgeNodge: {
-    marginVertical: 10,
-    width: 48,
-    height: 4,
-    borderRadius: 3,
-    backgroundColor: 'white',
-    opacity: 0.1,
-  },
-  title: {
-    marginVertical: 10,
-    color: "#fff",
-    fontSize: 36,
-    fontWeight: "bold",
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "normal",
-  },
-  tipText: {
-    marginVertical: 10,
-    color: "#DBE0E5",
-    fontSize: 12,
-    fontWeight: "normal",
-  },
-  detailText: {
-    marginTop: 10,
-    marginBottom: 50,
-    color: "#fff",
-    fontSize: 17,
-    fontWeight: "normal",
-    lineHeight: 28,
   },
 
   backButton: {
