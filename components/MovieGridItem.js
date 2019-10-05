@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  View, 
+  TouchableOpacity, 
   Text, 
   Image, 
   StyleSheet,
   Dimensions,
 } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
-import api from '../services/api';
+import { baseImgURL } from '../services/api';
 
 const { width: viewportWidth } = Dimensions.get('window');
 
@@ -21,16 +22,22 @@ function wp (percentage) {
 const coverWidth = wp(28);
 const coverHeight = coverWidth * 1.35;
 
-export default function MovieGridItem(props) {
+function MovieGridItem(props) {
 
   return(
-    <View style={styles.container}>
+    <TouchableOpacity
+      activeOpacity={0.5}
+      style={styles.container}
+      onPress={() => { 
+        props.navigation.navigate('MovieScreen', {movie: props.movie});
+      }}
+    >
       <Image
         style={styles.cover}
-        source={{uri: api.imgURL + props.movie.poster_path}}
+        source={{uri: baseImgURL + props.movie.poster_path}}
       />
       <Text style={styles.title}>{props.movie.title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -58,3 +65,5 @@ const styles = StyleSheet.create({
     fontWeight: "normal",
   },
 });
+
+export default withNavigation(MovieGridItem);

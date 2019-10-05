@@ -15,6 +15,7 @@ api.interceptors.request.use((config) => {
 });
 
 // Base URL for tmdb images.
-api.imgURL = "https://image.tmdb.org/t/p/w500";
+export const baseImgURL = "https://image.tmdb.org/t/p/w500";
+export const baseBackdropURL = "https://image.tmdb.org/t/p/original";
 
 export default api;

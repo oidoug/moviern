@@ -5,25 +5,29 @@ import {
   Image,
 } from 'react-native';
 
-import api from '../services/api';
+import { baseImgURL } from '../services/api';
 import styles from '../styles/Carousel.style';
+import { withNavigation } from 'react-navigation';
 
-
-export default function MovieCarouselItem(props) {
+function MovieCarouselItem(props) {
 
   return (
     <TouchableOpacity
-      activeOpacity={1}
+      activeOpacity={0.5}
       style={styles.slideInnerContainer}
-      onPress={() => { alert(`You've clicked '${props.item.title}'`); }}
+      onPress={() => { 
+        props.navigation.navigate('MovieScreen', {movie: props.movie});
+      }}
     >
       <View style={styles.shadow} />
       <View style={styles.imageContainer}>
         <Image
-          source={{ uri: api.imgURL + props.item.poster_path }}
+          source={{ uri: baseImgURL + props.movie.poster_path }}
           style={styles.image}
         />
       </View>
     </TouchableOpacity>
   );
 }
+
+export default withNavigation(MovieCarouselItem);

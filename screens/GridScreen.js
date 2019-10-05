@@ -46,8 +46,11 @@ export default function GridScreen(props) {
         contentContainerStyle={styles.content}
         numColumns={3}
         data={results}
-        renderItem={({item}) => 
-          <MovieGridItem key={item.id} movie={item} />
+        renderItem={({item}) =>
+          <MovieGridItem 
+            key={item.id} 
+            movie={item}
+          />
         }
         keyExtractor={(item) => item.id}
         ListHeaderComponent={<Header />}

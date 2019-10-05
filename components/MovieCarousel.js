@@ -5,8 +5,6 @@ import Carousel from 'react-native-snap-carousel';
 import MovieCarouselItem from './MovieCarouselItem';
 import styles, {sliderWidth, itemWidth, animatedStyles} from '../styles/Carousel.style';
 
-console.log(sliderWidth, itemWidth);
-
 export default function MovieCarousel(props) {
   
   return(
@@ -14,7 +12,7 @@ export default function MovieCarousel(props) {
       <Carousel
         data={props.movieList}
         renderItem={({item}, index)=>{
-          return(<MovieCarouselItem item={item}/>);
+          return(<MovieCarouselItem movie={item}/>);
         }}
         sliderWidth={sliderWidth}
         itemWidth={itemWidth}
