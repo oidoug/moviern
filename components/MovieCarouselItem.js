@@ -4,10 +4,12 @@ import {
   View, 
   Image,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { baseImgURL } from '../services/api';
 import styles from '../styles/Carousel.style';
 import { withNavigation } from 'react-navigation';
+
 
 function MovieCarouselItem(props) {
 
@@ -28,6 +30,10 @@ function MovieCarouselItem(props) {
       </View>
     </TouchableOpacity>
   );
+}
+
+MovieCarouselItem.propTypes = {
+  movie: PropTypes.object
 }
 
 export default withNavigation(MovieCarouselItem);

@@ -13,14 +13,16 @@ export default function GridScreen(props) {
 
   // Page control.
   const [result_page, setResultPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
-  // On function creation, run the request to get the grid list.
+  // On result_page creation, run the request to get the grid list.
   useEffect(()=>{
     requestMovieList();
-  },[]);
+  }, [result_page]);
 
   // Upcoming movies: sorting by popularity otherwise too many unknown movies shows up.
   function requestMovieList() {
+    setLoading(true);
     api.get('/discover/movie', {
       params: {
         sort_by: "popularity.desc",
@@ -29,12 +31,25 @@ export default function GridScreen(props) {
       }
     })
     .then(function (response) {
-      setResults(response.data.results);
+      setLoading(false);
+      if (result_page === 1) {
+        setResults(response.data.results);
+      } else {
+        console.log(`${loading} = ${results.length}:${response.data.results.length}`);
+        setResults([...results, response.data.results]);
+      }
     })
     .catch(function (error) {
+      setLoading(false);
       console.log(error);
     });
   }
+
+  function loadMore() {
+    if (!loading) {
+      setResultPage(result_page+1);
+    }
+  };
 
   return (
     <ImageBackground 
@@ -48,12 +63,14 @@ export default function GridScreen(props) {
         data={results}
         renderItem={({item}) =>
           <MovieGridItem 
-            key={item.id} 
+            key={item.id}
             movie={item}
           />
         }
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => `${item.id}`}
         ListHeaderComponent={<Header />}
+        onEndReached={loadMore}
+        onEndReachedThreshold={1}
       />
     </ImageBackground>
   );

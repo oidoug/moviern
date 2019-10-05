@@ -7,6 +7,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import PropTypes from 'prop-types';
 
 import { baseImgURL } from '../services/api';
 
@@ -39,6 +40,10 @@ function MovieGridItem(props) {
       <Text style={styles.title}>{props.movie.title}</Text>
     </TouchableOpacity>
   );
+}
+
+MovieGridItem.propTypes = {
+  movie: PropTypes.object
 }
 
 const styles = StyleSheet.create({

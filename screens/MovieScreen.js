@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { baseBackdropURL } from '../services/api';
 import MovieCard from '../components/MovieCard';
@@ -19,7 +20,7 @@ export default function MovieScreen(props) {
 
   const movie = props.navigation.getParam('movie');
   const backdropURL = baseBackdropURL + movie.backdrop_path;
-  console.log(backdropURL);
+
   return (
     <View style={styles.container}>
 
@@ -47,6 +48,10 @@ export default function MovieScreen(props) {
     </View>
   );
 };
+
+MovieScreen.propTypes = {
+  movie: PropTypes.object
+}
 
 const styles = StyleSheet.create({
   container:{

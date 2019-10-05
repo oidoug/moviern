@@ -5,14 +5,17 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 export default function MovieCard (props) {
 
   return(
     <View style={styles.card}>
+      {/* Not centering. 
       <View styles={styles.cardRidge}>
         <View style={styles.ridgeNodge} />
-      </View>
+      </View> 
+      */}
       <Text style={styles.title}>{props.movie.title}</Text>
       {/* stars */}
       {/* hours */}
@@ -35,6 +38,10 @@ export default function MovieCard (props) {
       <Text style={styles.detailText}>{props.movie.overview}</Text>
     </View>
   );
+}
+
+MovieCard.propTypes = {
+  movie: PropTypes.object
 }
 
 const styles = StyleSheet.create({
