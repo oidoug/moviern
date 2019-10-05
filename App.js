@@ -14,6 +14,8 @@ import {
 // Routes component controls all screens that can be pushed into the screen stack.
 import Routes from './routes';
 
+console.disableYellowBox = true;
+
 const App = () => {
   return (
     <>

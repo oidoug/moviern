@@ -45,13 +45,13 @@ export default StyleSheet.create({
     top: 0,
     left: itemHorizontalMargin,
     right: itemHorizontalMargin,
-    bottom: 18,
+    bottom: 1,
     shadowColor: "#028AB2",
     shadowOpacity: 0.45,
     shadowOffset: { width: 0, height: 15 },
     shadowRadius: 10,
     borderRadius: entryBorderRadius,
-    backgroundColor: 'black',
+    backgroundColor: IS_IOS ? 'black':'transparent',
     elevation: 2
   },
   imageContainer: {

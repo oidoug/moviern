@@ -9,3 +9,9 @@ A simple React-Native example App that uses [TheMovieDB.org] API to show some ne
 * Use the movie Backdrop image as the main image background in GridScreen. Some layer of opacity or a gradient should be added on top (maybe the one from the design spec).
 * Rating (starts) still missing.
 * Hours of sessions still missing.
+
+## Screenshots
+
+### iOS
+
+### Android

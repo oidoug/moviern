@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Platform } from 'react-native';
 
 import api from '../services/api';
-
 import MovieCarousel from './MovieCarousel';
+
+const IS_IOS = Platform.OS === 'ios';
 
 export default function Header(props) {
 
@@ -48,7 +49,7 @@ export default function Header(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 26,
+    paddingTop: IS_IOS?66:26,
   },
   title: {
     color: "#fff",
